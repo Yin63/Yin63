@@ -1,0 +1,81 @@
+/* style.css --- weather.html  */
+
+body,html{margin:0;padding: 0;}
+
+body{
+	text-align: center;
+	color: #333;
+	background-color: #fff;
+	padding-top: 70px;
+	overflow-y: scroll;
+}
+
+.form-control{
+	width: 60%;
+	margin-left: 10%;
+	margin-right: 0;
+}
+
+.conts{
+	margin: 20px auto;
+	background-color: white;
+	position: relative;
+
+}
+
+.btn{
+	width: 16%;
+	height: 34px;
+}
+
+.posth{
+	position: absolute;
+	top: 10px;
+	right: 10%;
+}
+
+.navbar-fixed-top{
+	height: 50px;
+	background-color: rgba(0,0,0,0.6);
+	padding-top: 10px;
+}
+
+
+
+.styat a{
+	
+	margin: 10px;
+}
+
+.text-left{
+	display: inline-block;
+	float: left;
+}
+
+.clicks{
+	
+}
+
+.autsls{
+	position: relative;
+	left: 0;top: 10px;
+	width: 100%;
+	background-color: #CDEEFC;
+	display: none;
+	padding: 20px 10% 20px 10%;
+}
+
+.text-right{
+	display: inline-block;
+	float: right;
+}
+
+.heihts{
+	height: 20px;
+}
+
+.autsls .p{
+	height: 1em;
+	margin: 2px;
+	line-height: 1em;
+}

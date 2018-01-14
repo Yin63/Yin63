@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<div class="navbar-fixed-top container">
+		<input type="text" class="form-control" placeholder="城市名称">
+		<button class="btn btn-success posth">查&nbsp;&nbsp;询</button>
+	</div>
+	
+	<div id="div" class="container conts">
+
+		<div class="list-group cod-xs-12 cod-sm-6 col-md-6 col-lg-6 styat">
+			<a href="#" class="clicks list-group-item list-group-item-success">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-info">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-warning">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-danger">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+		</div>
+
+		<div class="list-group cod-xs-12 cod-sm-6 col-md-6 col-lg-6 styat">
+			<a href="#" class="clicks list-group-item list-group-item-success">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-info">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-warning">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+			<a href="#" class="clicks list-group-item list-group-item-danger">
+				<p><strong class="text-left">时间</strong><span>天气情况 暂无数据</span></p>
+				<span>-- 等待请求 --</span>
+				<div class="autsls"></div>
+			</a>
+		</div>
+		
+	</div>
+
+	<script src="../jquery/jquery-3.2.1.js"></script>
+	<script src="../bootstrap/js/bootstrap.js"></script>
+	
+	<script>
+
+
+	var btn = $('button');
+	
+	var div = $('#div');
+
+	$('input').focus();
+
+
+	btn.click(function(){
+
+		var inp = $('input').val();
+
+		if(inp == ''){
+	
+			alert('请输入当前所在城市！');
+			return;
+		}
+
+		$('.autsls').html('');
+
+		$.ajax({
+
+
+			url: "http://saweather.market.alicloudapi.com/area-to-weather?",
+			beforeSend: function(request){
+				 request.setRequestHeader("Authorization", "APPCODE " + "cff740ebaf2944b7bdbb5a0a6191419f");
+			},
+			data: {"area":inp,"need3HourForcast":"0","needAlarm":"1","needHourData":"0","needIndex":"1","needMoreDay":"1"},
+			success:function(data){
+
+				var t = data.showapi_res_body;
+
+				var now = t[now];
+
+				$('strong').eq(0).html('now');
+
+				$('.autsls').eq(0).html('<p>看嘛，懒得写了，跟下面的数据一样</p><p>ps:开发者js第115行自己加 [手动滑稽]</p>');
+
+				for(  var index in t){
+
+					if(t[index].day!== undefined){
+
+						var f = index.slice(-1);
+
+								var str = t[index].day;
+
+								str = str.substring(0,4)+'年'+str.substring(4,6)+'月'+str.substring(6,8)+'日'+' '+t.cityInfo.c7+' | '+t.cityInfo.c3;
+
+								$('strong').eq(f).html(str);
+
+								var str1 = t[index].day_weather+' 白天温度:'+t[index].day_air_temperature+'°C';
+
+								$('div>a>p>span').eq(f).html(str1);
+
+								var str2 = t[index].day_wind_direction+' '+t[index].day_wind_power+' 晾晒:'+t[index].index.ls.title+' 紫外线:'+t[index].ziwaixian;
+
+								$('div>a>span').eq(f).html(str2);
+
+								var str3 = '';
+
+								str3 += '<img src="'+t[index].day_weather_pic+'" alt="白天" />';
+
+								str3 += '<p class="heihts"><span class="text-left">白天: '+t[index].day_weather+' '+t[index].day_air_temperature+'°C'+'</span><span class="text-right">夜间:'+t[index].night_weather+' '+t[index].night_air_temperature+'°C'+'</span></p>';
+
+								str3 +='<p class="heihts"><span class="text-left">白天: '+t[index].day_wind_direction+' '+t[index].day_air_temperature+' '+'</span><span class="text-right">夜间:'+t[index].night_wind_direction+' '+t[index].night_air_temperature+' '+'</span></p>';
+
+								str3 += '<p>起始时间:'+t[index].sun_begin_end+' 降雨量:'+t[index].jiangshui+'</p>';
+
+								str3 += '<p>穿衣指数:'+t[index].index.clothes.title+' '+t[index].index.clothes.desc+'</p>';
+
+								str3 += '<p>化妆:'+t[index].index.mf.title+' '+t[index].index.mf.desc+'</p>';
+
+								str3 += '<p>外出:'+t[index].index.gj.title+' '+t[index].index.gj.desc+'</p>';
+
+								$('.autsls').eq(f).html(str3);
+					}
+					
+				}
+				
+			}
+
+		})	
+	})
+
+	var speed = $('div>div');
+
+	if(speed.length == 2 ){
+
+		$('.clicks').click(function(event) {
+
+			$(this).children('span').toggle(0);
+
+			$(this).children('div').slideToggle('slow');
+			
+			return false;
+		});
+	}
+
+
+	</script>
+</body>
+</html>
