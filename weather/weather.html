@@ -76,6 +76,23 @@
 	
 	<script>
 
+		(function(){
+			$.ajax({
+				url:'http://api.map.baidu.com/location/ip?ak=yEI08XqCTM8ZGLP17wcA5n0bPImbILuO&coor=bd09ll',
+				//data:{'ak':'yEI08XqCTM8ZGLP17wcA5n0bPImbILuO','coor':'bd09ll'},
+				type:'GET',
+				dataType:'jsonp',
+				success:function(data){
+					var bes = data['content'];
+					$('input').eq(0).val(bes['address_detail']['city']);
+				},
+				error:function(){
+					console.log('定位失败！');
+				}
+			})
+			
+		})();
+
 
 	var btn = $('button');
 	
