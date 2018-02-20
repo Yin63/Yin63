@@ -14,27 +14,7 @@
 //*		并在其基础之上须保留作者的版权注释	
 
 /*Copyright (C) <2018.1.6> <yni63 // yni63.com>
-
-　　Permission is hereby granted, free of charge, to any person
- obtaining a copy of this software and associated documentation files (the "Software"),
-  to deal in the Software without restriction,
-   including without limitation the rights to use, copy,
-    modify, merge, publish, distribute, sublicense, 
-    and/or sell copies of the Software, 
-    and to permit persons to whom the Software is furnished to do so,
-    subject to the following conditions:
-　　
-　　The above copyright notice and this permission notice shall be 
-included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
-
-//**************************************
+//**************************************/
 
 
 $(function(){
@@ -70,20 +50,22 @@ $(function(){
 		if(audio.muted===false){
 			$(this).find('i').html('&#xe796;');
 			audio.muted=true;
-			$('#c').fadeOut(3000);
+			
 
 		}else{
 			$(this).find('i').html('&#xe600;');
 			audio.muted=false;
 			if(!audio.paused){
 
-				$('#c').fadeIn(3000);
+				
 			}
 		}
 	})
 
 	// 获取音频
 	$('#btn').click(function(){
+
+		var winwidth = $(window).width();
 
 		if($('a > input[type=file]').get(0).files[0]===undefined){
 			alert('请选择音频文件！'); return;
@@ -98,12 +80,20 @@ $(function(){
 			var url = window.URL.createObjectURL(files[i]);
 
 			$(li).attr({url:url});
+			var muname = files[i].name;
+			var Exp = /\W\./;
+			Exp.test(muname);
 
-			li.innerHTML= '<span class="mpname">'+files[i].name+'</span>'+' '+'<span>'+files[i].lastModifiedDate.toLocaleDateString()+' '+files[i].lastModifiedDate.toLocaleTimeString()+' '+(files[i].size/1024/1024).toFixed(2)+'MB</span><span class="ciont"><i class="iconfont">&#xe609;</i></span>';
-
-			// -------------------------
-			//file 过滤
-			// -------------------------
+			if(winwidth>768){
+				li.innerHTML= '<span class="mpname">'+muname+'</span>'+' '+'<span>'+files[i].lastModifiedDate.toLocaleDateString()+' '+files[i].lastModifiedDate.toLocaleTimeString()+' '+(files[i].size/1024/1024).toFixed(2)+'MB</span><span class="ciont"><i class="iconfont">&#xe609;</i></span>';
+			}else{
+				if(muname.length>20 && Exp){
+					muname = muname.substring(0,20) + '...';
+				}else{
+					muname = muname.substring(0,50);
+				}
+				li.innerHTML= '<span class="mpname">'+muname+'</span>'+'<span class="ciont"><i class="iconfont">&#xe609;</i></span>';
+			}
 
 			li.num = num;
 
@@ -115,17 +105,18 @@ $(function(){
 
 		$('.icont1').click();
 		$('a > input[type=file]').val('');
-
-		var len = $('.tabul ul>li').length;
-		house(len);
+		house();
+		
 	})
 
 	// 收藏
-	function house(lens){
+	function house(){
+
+		var lens = $('.tabul ul>li').length;
 
 		for(var i=0;i< lens;i++){
 
-			$('.tabul ul span:nth-child(3)').eq(i).click(function(e){
+			$('.tabul ul span:last-child').eq(i).click(function(e){
 
 				$(this).find('i').toggleClass('active');
 
@@ -148,9 +139,7 @@ $(function(){
 					audio.play();$('.bgb>i').html('&#xe750;');
 
 					num = this.num;
-
-					$('#c').fadeIn(3000);
-
+					$('.icontainer .option div').css('animation-play-state','running');
 					setTimeout(function(){
 						$('.end').html(conversion(audio.duration));
 					},500)
@@ -176,13 +165,15 @@ $(function(){
 			if( audio.paused && audio.onoff===true) {
 	
 				$('.bgb>i').html('&#xe750;');
-				audio.play();$('#c').fadeIn(3000);
+				audio.play();
+				$('.icontainer .option div').css('animation-play-state','running');
 				
 
 			}else if(audio.onoff===true){
 
 				$('.bgb>i').html('&#xe74f;');
-				audio.pause();$('#c').fadeOut(3000);
+				audio.pause();
+				$('.icontainer .option div').css('animation-play-state','paused');
 			}else{
 				alert('请先导入并选择歌曲！');
 			}
@@ -210,7 +201,7 @@ $(function(){
 				sum++;num = sum;
 
 				if(sum>$('.tabul>div>ul>li').length-1){
-					sum=0;
+					sum=0;num = sum;
 				}
 
 			}else{
@@ -218,7 +209,7 @@ $(function(){
 				sum--;num = sum;
 
 				if(sum<0){
-					sum=$('.tabul>div>ul>li').length-1;	
+					sum=$('.tabul>div>ul>li').length-1;	num = sum;
 				}
 			}
 
@@ -325,7 +316,7 @@ $(function(){
 		minute = minute.toString().length === 1 ? ('0' + minute) : minute;
 		var second = Math.round(value % 60);
 		 second = second.toString().length === 1 ? ('0' + second) : second;
-		 return `${minute}:${second}`
+		 return minute+ ':' + second;
 	}
 
 	(function (){
@@ -365,8 +356,40 @@ $(function(){
 
 	$('#heden').on('click',function(){
 
-		$('.container').toggle();
+		$('.online').toggle();
 		$('.icontainer').toggle();
 	})
 
+})
+
+$('button[type="button"]').on('click',function(){
+	if($(this).attr('aria-expanded')){
+		$('nav.navbar').css('opacity','1');
+	}else{
+		$('nav.navbar').css('opacity','.8');
+	}
+})
+
+if($(window).width()<768){
+	$('.online').css('height',($(window).height()-50)+'px');
+	$('body').css('height',$(window).height()+'px');
+}
+
+$('nav div.collapse ul>:first').on('click',function(){
+	if($(window).width()<768){
+		$('.profile').animate({width:'100%'},'slow');
+	}else{
+		$('.profile').animate({width:'80%'},'slow');
+	}
+	setTimeout(function(){
+		$('.profile .contxt').animate({opacity:'1'},'slow');
+	},500)
+	
+})
+
+$('.profile >.close').on('click',function(){
+	$('.profile .contxt').animate({opacity:'0'},'slow');
+	setTimeout(function(){
+		$('.profile').animate({width:'0%'},'slow');
+	},500)
 })

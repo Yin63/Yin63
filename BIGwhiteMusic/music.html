@@ -1,26 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 </head>
+
 <body>
-	<section class="icontainer">
-		<a href="javascript:;"><input type="file" multiple accept="audio/mpeg">选择文件</a>
-		
-		<a id="btn" href="javascript:;"><button>获取列表</button>获取列表</a>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" id="heden" href="#">BIGWhitePlayer</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#">关于作者</a>
+					</li>
+					<li>
+						<a target="_blank" href="https://github.com/Yin63/Yin63/tree/master/BIGwhiteMusic">下载地址</a>
+					</li>
+					<li>
+						<a target="_blank" href="http://www.yni63.win">博客</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-toggle="modal" data-target="#myModal">使用方法</a>
+					</li>
+					<li>
+						<a href="#">-待定-</a>
+					</li>
+					<li>
+						<a href="#">-待定-</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<!--////////////////////////////////////////////////////////-->
+	<!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">教程演示，欢迎观看！</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="image/jc.png" alt="jc">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">我已了解</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!--////////////////////////////////////////////////////////-->
+	<div class="profile">
+		<span class="close">x</span>
+		<div class="contxt">
+			<div>
+				<img src="image/tx.jpg" alt="头像">
+			</div>
+			<h4>欢迎使用大白播放器！(●—●)</h4>
+			<span>此版本为2.0测试版如有发现任何问题或者意见<br />都可以与我联系</span>
+			<p>可以联系我的QQ: <strong>439659234</strong></p>
+		</div>
+	</div>
+	<!--////////////////////////////////////////////////////////-->
+	<section class="icontainer container ">
+
+		<div class="obtain container">
+			<a href="javascript:;" class=" active col-xs-6 col-sm-4 clo col-md-4  col-lg-2">
+				<input type="file" multiple accept="audio/mpeg">选择文件</a>
+
+			<a id="btn" class=" active col-xs-6 col-sm-4 clo col-md-4  col-lg-2" href="javascript:;">
+				<button>获取列表</button>获取列表</a>
+		</div>
+
 		<div class="option">
 			<div></div>
-			<a class="bga" href="javascript:;"><i class="iconfont">&#xe74d;</i></a>
-			<a class="bgb" href="javascript:;"><i class="iconfont">&#xe74f;</i></a>
-			<a class="bgc" href="javascript:;"><i class="iconfont">&#xe7f5;</i></a>
+			<a class="bga" href="javascript:;">
+				<i class="iconfont">&#xe74d;</i>
+			</a>
+			<a class="bgb" href="javascript:;">
+				<i class="iconfont">&#xe74f;</i>
+			</a>
+			<a class="bgc" href="javascript:;">
+				<i class="iconfont">&#xe7f5;</i>
+			</a>
 		</div>
-		
+
 		<div class="op">
-			<canvas id="c"></canvas>
-			<!-- 歌词 -->
+
 		</div>
 		<div class="tabul">
 			<div>
@@ -29,47 +118,52 @@
 			</div>
 		</div>
 
-		<div class="control">
-			<span class="control-end"><i class="iconfont">&#xe600;</i></span>
-			<div class="progress">
+		<div class="control container">
+			<span class="control-end">
+				<i class="iconfont">&#xe600;</i>
+			</span>
+
+			<div class="progress col-lg-8 col-md-4 col-sm-12 col-xs-12 ">
 				<span class="start">00:00</span>
 				<div class="progressbar">
 					<div class="now"></div>
 				</div>
 				<span class="end">00:00</span>
 			</div>
-			<a class="icont1" href="javascript:;">
-				<i class="iconfont">&#xe6ec;</i>
-			</a>
-			<a class="icont2" href="javascript:;">
-				<i class="iconfont">&#xe609;</i>
-			</a>
-			<a class="icont3" href="javascript:;">
-				<i class="iconfont">&#xe871;</i>
-			</a>
+
+			<div class="icontbox col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+				<a class="icont1" href="javascript:;">
+					<i class="iconfont">&#xe6ec;</i>
+				</a>
+				<a class="icont2" href="javascript:;">
+					<i class="iconfont">&#xe609;</i>
+				</a>
+				<a class="icont3" href="javascript:;">
+					<i class="iconfont">&#xe871;</i>
+				</a>
+			</div>
+
 		</div>
 
 		<audio preload="auto" src=""></audio>
 
 		<div class="collect">
 			<ul>
-			
-			</ul>	
+
+			</ul>
 		</div>
 
 	</section>
 
-	<section class="container">
+	<section class="online">
 
 		<iframe src="MKOnlineMusicPlayer/index.html" frameborder="0" width="100%" height="100%"></iframe>
 
 	</section>
 
-
-	<span id="heden">换</span>
-
 </body>
-<script src="fonts/script.min.js"></script>
 <script src="fonts/jquery-3.2.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <script src="script.js"></script>
+
 </html>

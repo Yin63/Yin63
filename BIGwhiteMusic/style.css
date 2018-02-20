@@ -1,6 +1,6 @@
 /* style.css------music.html */
-		html{height: 100%;}
-		body{margin: 0;padding: 0;overflow: hidden;height: 100%;}
+		html{height: 100%;width: 100%;}
+		body{margin: 0;padding: 0;overflow: hidden;height: 100%;width:100%;position: fixed;top: 0;left: 0;}
 		body::before{
 			content: "";
 			display: block;
@@ -18,41 +18,67 @@
             -ms-filter: blur(4px);
             filter: blur(4px);
 		}
-		.icontainer{position: relative;width: 900px; height: 100%;margin: 0 auto;padding: 15px;text-align: center;}
-		.icontainer a{
-			display:inline-block;width: 120px;line-height: 2em;
+
+		.navbar{
+			position: fixed;
+			top: 0;left: 0;
+			z-index: 999;
+			opacity: .8;
+		}
+		.navbar .navbar-header a:hover{
+			opacity: 1;
+			text-shadow: 0 0 4px #1E1E1E;
+		}
+		.navbar div ul{
+			width: 80%;
+		}
+		.navbar div ul li{
+			padding: 0 10px;
+		}
+		.navbar div ul li:hover{
+			opacity: 1;
+			text-shadow: 0 0 4px #1E1E1E;
+		}
+		.icontainer{position: relative; height: 100%;margin: 0 auto;padding: 15px;text-align: center;}
+		
+		.icontainer.container{
+			width: 96%;
+		}
+		.icontainer .obtain.container{
+			position: fixed;
+			top: 70px;
+			left: 0;
+			width: 80%;
+		}
+		.icontainer .obtain a{
+			display:inline-block;line-height: 2.3em;
 			height: 40px;border-radius: 11px;text-align: center;
 			background-color: #FDF867;position: relative;
+			margin: 0 20px;opacity: .8;
 			color: #00A2E8;text-decoration: none;overflow: hidden;font-size: 18px;
+		}
+		.icontainer a:hover,.icontainer a{
+			color: transparent;text-decoration: none;
 		}
 		.icontainer input{width: 100%;height: 100%;opacity: 0;position: absolute;}
 
 		.icontainer a button{opacity: 0;position: absolute;}
 
-		.icontainer a:hover{background-color: #F0EC74;color: #8993F6;}
-
-		.icontainer .op{width: 600px;height: 400px;
-		margin:0 auto;margin-top: 80px;position: relative;
+		.icontainer a.clo{
+			color: #00A2E8;
 		}
-		/*------------外置特效-------------------*/
-		.icontainer .op canvas {
-    	  position: absolute;
-    	  width: 600px;height: 400px;
-    	  top: 0;
-    	  left: 0;
-    	  display:none;
-    	}
-		/*------------外置特效-------------------*/
+
+		.icontainer .obtain.container a.clo:hover{opacity: 1;}
 
 		.icontainer .option{
-			position: fixed;left: 100px;bottom: 50px;
-			width: 160px;height: 160px;z-index: 999;
+			position: fixed;left: 80px;bottom: 120px;
+			width: 160px;height: 160px;
 		}
 
 		.icontainer .option div{
-			width: 160px;height: 160px;border-radius: 50%;
+			width: 100%;height: 100%;border-radius: 50%;
 			background: url(image/5.jpg)no-repeat center;background-size: 160px;
-			
+			border: 2px solid transparent;
 			animation:mymove 5s linear infinite;
 			-webkit-animation:mymove 5s linear infinite;
 			-moz-animation:mymove 5s linear infinite;
@@ -62,6 +88,8 @@
 			-webkit-transition:all 0.5s;
 			-moz-transition:all 0.5s;
 			-o-transition:all 0.5s;
+
+			animation-play-state: paused;
 		}
 
 		@keyframes mymove
@@ -94,9 +122,9 @@
 
 		.icontainer .option a{
 			position: absolute;
-			width: 30px;height: 30px;
-			left: 50%;margin-top: -15px;
-			top: 50%;margin-left: -15px;
+			width: 60px;height: 60px;
+			left: 50%;margin-top: -40px;
+			top: 50%;margin-left: -30px;
 			background-color: transparent;
 			opacity: 0;
 			transition:all 1s;
@@ -106,14 +134,12 @@
 		}
 
 		.icontainer .option:hover a{
-			opacity: 10;margin-top: -30px;
-			width: 60px;height: 60px;line-height: 60px;
+			opacity: 10;
 		}
 
 		.icontainer .option:hover div{
 
-			border: 2px solid #B5E61D;
-			width: 158px;height: 158px;
+			border-color: #B5E61D;
 		}
 		.icontainer .option:hover a[class$="a"]{
 
@@ -152,17 +178,19 @@
 		.tabul{
 			position: fixed;left: 0;top: 0;
 			width: 100%;height: 100%;
-			padding-top: 140px;
+			padding-top: 70px;
 			background-color: rgba(0,0,0,0.6);
 			opacity: 0;
 			display: none;
 		}
 
 		.tabul div{
-			width: 720px;
+			width: 80%;
 			margin: 0 auto;
-			height: 500px;
+			height: 70%;
 			overflow: auto;
+			z-index: 666;
+			position: relative;
 			background-color: rgba(39,40,34,0.8);
 		}
 
@@ -170,17 +198,16 @@
 			margin:0;
 			padding: 0;
 			list-style: none;
-			width: 600px;
-			margin: 0 auto;
+			width: 98%;
 			padding: 20px 0;
-			border-left: 1px solid white;
-			border-right: 1px solid white;
+			border-left: 1px solid rgba(150,150, 150, .1);
+			border-right: 1px solid rgba(150,150, 150, .1);
 		}
 
 		.tabul div ul li{
 			overflow: hidden;
 			width: 100%;height: 50px;
-			border-top: 1px solid white;
+			border-top: 1px solid rgba(150,150, 150, .1);
 			text-align: left;color: white;
 			padding-left: 50px;line-height: 50px;
 			transition:color 0.5s,border 0.3s;
@@ -225,16 +252,23 @@
 
 		.control{
 			position: fixed;
-			left: 10px;top: 3px;
+			bottom: 60px;
 			width: 480px;height: 50px;
 			padding: 5px 10px;
 			border-bottom: 1px solid #00A2E8;
+			z-index: 999;
+		}
+
+		.control.container{
+			width: 80%;
+			left: 50%;
+			margin-left: -40%;
 		}
 
 		.control-end{
 			position: fixed;
 			width: 50px;height: 50px;
-			top: 40px;right: 80px;
+			top: 50px;right: 40px;
 			cursor:pointer;
 		}
 
@@ -254,27 +288,41 @@
 
 		.control .progress{
 			height: 100%;
-			width: 310px;
+			min-width: 310px;
 			float: left;
+			background-color: transparent;
+			box-shadow: none;
+			-webkit-box-shadow:0;
 		}
 
 		.control .progress span{
-			float: left;
-			line-height: 55px;
-			color: white;
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;
+			color: #31c27c;
+		}
+
+		.control .progress .start{
+			left: 0;
+		}
+
+		.control .progress .end{
+			right: 0;
 		}
 
 		.progressbar {
 		   position: relative;
-		   width: 70%;
+		   width: 80%;
 		   height: 5px;
-		   background-color: #eee;
+		   background-color: #CAC8C8;
+		   color: #CAC8C8;
 		   vertical-align: 2px;
 		   border-radius: 3px;
 		   cursor: pointer;
 		   float: left;
 		   top: 50%;
 		   margin:0 5px;
+		   margin-left: 10%;
 		}
 
 		.now {
@@ -297,13 +345,21 @@
 		   background-color: lightblue;
 		}
 
+		.control .icontbox{
+			height: 100%;
+			float: right;
+		}
+		.control .icontbox a i{
+			color: #31c27c;
+		}
+
 		.control a{
 			display: inline-block;
 			float: right;
-			margin-left: 15px;
-			padding: 10px 5px;
+			margin-left: 2%;
 			background-color: transparent;
-			width: 30px;height: 30px;
+			width: 30%;height:100%;
+			text-decoration: none;
 		}
 
 		.control a:hover{
@@ -324,13 +380,11 @@
 
 
 		.collect{
-			position: fixed;left: 50%;top: 50%;
-			width: 720px;
-			margin-left: -360px;
-			margin-top: -230px;
+			position: fixed;left: 10%;top: 8%;
+			width: 80%;
 			background-color: rgb(255,255,255);
 			border-radius: 16px;
-			height: 520px;display: none;
+			height: 70%;display: none;
 			overflow: auto;
 		}
 
@@ -338,17 +392,17 @@
 			margin:0;
 			padding: 0;
 			list-style: none;
-			width: 600px;
+			width: 100%;
 			margin: 20px auto;
 			padding: 20px 0;
-			border-left: 1px solid black;
-			border-right: 1px solid black;
+			border-left: 1px solid rgba(150, 150, 150, .1);
+			border-right: 1px solid rgba(150, 150, 150, .1);
 		}
 
 		.collect ul li{
 			overflow: hidden;
 			width: 100%;height: 50px;
-			border-top: 1px solid black;
+			border-top: 1px solid rgba(150, 150, 150, .1);
 			text-align: left;color: black;
 			padding-left: 50px;line-height: 50px;
 			transition:color 0.5s,border 0.3s;
@@ -372,56 +426,154 @@
 			font-size: 25px;
 		}
 
-		.container{
-			position: absolute;
+		.online{
+			position: fixed;
 			width: 100%;
 			height: 100%;
-			margin: 0 auto;
+			top: 0;
 			display: none;
 			
 		}
 
-
-		#heden{
-			position: fixed;
-			font-size: 40px;
-			font-weight: bold;
-			color: white;
-			background-color: #FFC90E;
-			opacity: 0.5;
-			width: 4em;
-			height: 2em;
-			line-height: 2em;
-			right: -3em;
-			bottom: 150px;
-			border-radius: 50px 0px 0px 50px;
-			cursor: pointer;
-			text-align: center;
-			transition:all 0.5s;
-			-webkit-transition:all 0.5s;
-			-moz-transition:all 0.5s;
-			-o-transition:all 0.5s;
-		}
-
-		#heden:hover{
-			opacity: 1;
+		.profile{
+			height: 100%;
+			width: 0%;
+			position: absolute;
 			right: 0;
+			top: 0;
+			z-index: 1000;
+			overflow: hidden;
+			background-color: rgba(0,0,0,0.8);
+		}
+		.profile .close{
+			display: block;
+			width: 50px;
+			height: 50px;
+			float: right;
+			opacity: .9;
+			margin: 20px;
+			color: white;
+		}
+		.profile .close:hover{
+			opacity: 1;
+			color:white;
+		}
+		.profile .contxt{
+			width: 100%;
+			height: 80%;
+			margin-top: 20%;
+			opacity: 0;
+			color: rgba(255,255,255,0.7);
+			text-align: center;
+		}
+		.profile .contxt div{
+			width: 100%;
+			height: 40%;
+			position: relative;
+			overflow: hidden;
+		}
+		.profile .contxt div img{
+			width:200px;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -100px;
+			border-radius: 50%;
+		}
+		/*bug*/
+		body .icontainer a:hover, body .icontainer a:focus {
+			color: transparent;
+		}
+		body .icontainer .obtain a.active:hover{
+			color: #00A2E8;
 		}
 
-		/* ----------media-------------- */
+		/*模态框*/
+		.modal  .modal-body img{
+			width: 100%;
+		}
 
-		@media (max-width:1240px){
+		@media(max-width:768px){
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+
+			body:before{
+				background-color: #844E74;
+				background-image: none;
+			}
+
+			.tabul div{
+				height:78%;
+				width: 90%;
+			}
+			.collect{
+				height: 70%;
+				top: 12%;
+			}
+			.control-end{
+				display: none;
+			}
+			.tabul div ul li,.collect ul li{
+				padding-left: 10px;
+				overflow: none;
+			}
+			.control.container {
+				width: 98%;
+				margin-left:-49%;
+			}
+			.icontainer .obtain.container{
+				width: 100%;
+			}
+			.icontainer .obtain.container a{
+				color: white;
+			}
+			.icontainer .obtain.container a:nth-of-type(1){
+				border-radius: 11px 0 0 11px;
+				background-color: cornflowerblue;
+				margin: 0;
+			}
+			.icontainer .obtain.container a:nth-of-type(2){
+				border-radius: 0 11px 11px 0;
+				background-color: cyan;
+				margin: 0;
+			}
+			.control .icontbox a i,.control .progress span{
+				color: white;
+			}
 			
-			.icontainer{
-				display: none;
+			.icontainer .option{
+				top: 50%;
+				margin-top: -80px;
+				left: 50%;
+				margin-left: -80px;
 			}
-
-			.container{
-				display: block;
+			.icontainer .option a{
+				opacity: 10;
 			}
+			.icontainer .option a[class$="a"]{
 
-			#heden{
-				display: none;
+				left: 0;margin-left: -60px;
+			}
+	
+			.icontainer .option a[class$="b"]{
+	
+				margin-left: -30px;
+			}
+	
+			.icontainer .option a[class$="c"]{
+	
+				left: 150px;margin-left: 10px;
+			}
+			.online{
+				top: 50px;
+			}
+			.profile .contxt div img{
+				width: 30%;
+				left: 50%;
+				top: 20%;
+				margin-left: -15%;
 			}
 		}
  
