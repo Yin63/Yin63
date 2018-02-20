@@ -1,34 +1,23 @@
+###  播放器 2.0 版本更新 完美适配移动端
 
-## 一款超简约的网页级音乐播放器 
-
-欢迎使用`大白播放器 (●—●)`这是一款基于**MKOnlineMusicPlayer**做的一款播放器，在原来的基础上增加了本地音乐播放的基础功能。
-
-#### 授权协议：
-
-> 本项目采用 MIT 开源协议进行授权，并在其基础上须保留原作者的版权注释（除 HTML）
-> （就这一点点要求都不能满足我吗？  (❁´ω`❁)）
-
-#### 新增功能：
-
-- 无需上传，本地音乐批量导入
-- 自动生成播放列表
-- 音乐 单曲/循环 播放
-- 上一曲，下一曲，暂停，继续，静音
-- 音频文件信息显示  （最后修改时间，文件大小）
-- 进度条显示，及拖拽
-- 歌曲收藏
+> 历史版本：  [播放器1.0](http://www.yni63.win/index.php/archives/7/)
 
 
-#### 界面欣赏：
+hello 大家好！  经历了一个多月我还是憋不住更新了，这次更新全面适配移动端，优化了界面，并且修复了若干细微bug。 OK！下面就和我一起欣赏一下最新版本吧！
 
-![基础界面](http://my-code.nos-eastchina1.126.net/jsrun/music/img.png)
+**界面欣赏**
+![music](http://my-code.nos-eastchina1.126.net/jsrun/music/music_2_1.png)
 
-![基础界面](http://my-code.nos-eastchina1.126.net/jsrun/music/img1.png)
+![music](http://my-code.nos-eastchina1.126.net/jsrun/music/music_2_2.png)
 
-![基础界面](http://my-code.nos-eastchina1.126.net/jsrun/music/img2.png)
 
-![基础界面](http://my-code.nos-eastchina1.126.net/jsrun/music/img3.png)
 
+<center>
+    <img src="http://my-code.nos-eastchina1.126.net/jsrun/music/music_2_3.png">
+    <img src="http://my-code.nos-eastchina1.126.net/jsrun/music/music_2_4.png">
+</center>
+
+-----
 
 体验地址：[传送门](http://www.inkgn.site)
 
@@ -47,8 +36,9 @@ php 5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt
 
 #### 待解决问题
 
-- 本地播放移动端适配
-- 界面风格统一
+- 下一版本将进行页面大调整
+- 完善正则匹配
+- 添加网页储存功能，支持离线使用
 - 解决低版本IE兼容
 
 ### 常见问题
@@ -67,8 +57,22 @@ php 5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt
 
 请打开 `api.php`，将第十行的 `define('HTTPS', true);` 修改为 `define('HTTPS', false);`
 
-> 版本  1.0   后续将持续更新，敬请期待！
+> 版本  2.0   后续将持续更新，敬请期待！
+
+**更新日志**
+>  v2.0版本  2018/2/20 
+- 支持移动端
+- 修复歌曲循环bug 
+- 修复播放器图片抖动
+- 改变在线音乐切换
+
+-----
+> v1.0版本  2018/01/16
+-	基本功能已完善（旧版本，已废弃）
 
 **意见反馈**
 
 作者博客：[www.yni63.win](http://www.yni63.win)
+
+
+
