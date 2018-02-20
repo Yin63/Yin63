@@ -1,0 +1,395 @@
+<!doctype html><html>
+<head><meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<head><title>README</title>
+</head>
+<link rel="stylesheet" type="text/css" href="./static/js/lib/markdown/katex/katex.min.css">
+<style type="text/css">
+	body{
+		font-family:"Helvetica Neue","Helvetica","Microsoft Yahei","微软雅黑","Lantinghei SC","STXihei","WenQuanYi Micro Hei",Arial,sans-serif;
+		text-align:justify;margin:auto;font-size:14px;line-height:1.6em;
+		color:#333;background:#fefefe;padding:15px;margin:30px auto;position: relative;
+		-webkit-font-smoothing: antialiased;font-smoothing: antialiased;
+	}
+	
+	article,footer,header,nav{margin:0 auto}
+	article{margin-top:4em;margin-bottom:4em;min-height:400px}
+	footer{margin-bottom:50px}
+	video{margin:2em 0;border:1px solid #ddd}
+	nav{font-size:.9em;font-style:italic;border-bottom:1px solid #ddd;padding:1em 0}
+	nav p{margin:0}
+	details{margin: 15px 0;}
+	summary{cursor:pointer;padding: 4px;}
+	summary:focus{outline: none;box-shadow: 0 0 3px #2196F3;}
+	.h1,h1{font-size:2.2em;}
+	.h2,h2{font-size:1.9em;}
+	.h3,h3{font-size:1.6em;}
+	.h4,h4{font-size:1.3em;}
+	.h5,h5{font-size:1.2em;}
+	.h6,h6{font-size:1.1em;}
+	.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{
+		font-family:inherit;font-weight:500;color: #333;
+		line-height:1.5em;padding:0.3em 0;margin: 1em 0 1em 0;
+		word-break: break-all;
+	}
+	.h1,h1{letter-spacing: 1px;border-bottom: 1px solid #ddd;}
+	.h2,h2{padding-bottom: 0.15em;}
+	p{-webkit-hypens:auto;-moz-hypens:auto;hyphens:auto;margin:10px 0;}
+	p,li,div,ul{word-wrap: break-all;}
+	blockquote{margin-left:1em;padding:10px 15px;margin:10px 0 20px 0;border-left:10px solid #ddd;background: #f6f6f6;}
+	blockquote p{margin:0;font-weight:400;}
+	code{
+		padding: 2px 4px;color: #c7254e;background-color:#f9f2f4;border-radius: 4px;
+	}
+	pre{display:block;padding:0;overflow:auto;margin:0 0 10px;font-size:1em;line-height:1.42857143;
+		word-break:break-all;word-wrap:break-word;color:#333;background:none;border-radius:4px}
+	code,kbd,pre,samp{
+		font-family:Consolas,'Liberation Mono','Ubuntu Mono',Menlo,Courier,sans-serif;
+	}
+	pre code{background:#f8f8f8;color:#777;white-space:pre-wrap;padding:6px 1em;border:1px solid #eee;display: block;}
+	a{color:#1980e6;text-decoration:none}
+	a:hover{text-decoration:underline}
+	a img{border:none}
+	img{max-width: 100%;}
+	h1 a,h1 a:hover{text-decoration:none}
+	hr{border: 0 none;height: 4px;margin:1.2em 0;
+	    background: rgba(0, 0, 0, 0) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+	}
+	@media screen and (min-width: 900px) {
+		body {width: 900px;}
+	}
+	ul,ol{padding:0.2em 0 0.2em 2em;}
+	table {border-collapse: collapse;border-spacing: 0;margin-bottom: 20px;}
+	table thead{background: #eee;}
+	table td,table th{padding: .5em;border: 1px solid #ddd;line-height: 1.5;}
+	.markdown-flow{background:#fff;padding: 15px;}
+	.markdown-flow .label{color:#444;}
+	.markdown-latex {
+		text-align: center;font-size:1.6em;color: #000;
+		margin-bottom: 1.5em;overflow: hidden;overflow-x:auto;
+	}
+	.latex-inline .katex-display{display:inline-block;font-size: 0.8em;}
+	.markdown-menu ul{padding:0 10px 20px 20px;}
+	.markdown-menu li{
+		font-size:14px;list-style:none;
+		line-height:1.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+	}
+	.markdown-menu-h2{padding-left:2em;}
+	.markdown-menu-h3{padding-left:4em;}
+	.markdown-menu-h4{padding-left:6em;}
+	.markdown-menu-h5{padding-left:8em;}
+	.markdown-menu-h6{padding-left:10em;}
+
+	div .hljs{color: #666;}
+	.hljs-comment,.hljs-quote{color:#998;font-style:italic}
+	.hljs-keyword,.hljs-selector-tag,.hljs-subst{color:#333;font-weight:700}
+	.hljs-literal,.hljs-number,.hljs-tag .hljs-attr,
+		.hljs-template-variable,.hljs-variable{color:teal}
+	.hljs-doctag,.hljs-string{color:#d14}
+	.hljs-section,.hljs-selector-id,.hljs-title{color:#900;font-weight:700}
+	.hljs-subst{font-weight:400}
+	.hljs-class .hljs-title,.hljs-type{color:#458;font-weight:700}
+	.hljs-attribute,.hljs-name,.hljs-tag{color:navy;font-weight:400}
+	.hljs-meta,.hljs-strong{font-weight:700}
+	.hljs-link,.hljs-regexp{color:#009926}
+	.hljs-bullet,.hljs-symbol{color:#990073}
+	.hljs-built_in,.hljs-builtin-name{color:#0086b3}
+	.hljs-meta{color:#999}
+	.hljs-deletion{background:#fdd}
+	.hljs-addition{background:#dfd}
+	.hljs-emphasis{font-style:italic}
+
+	/* black theme */
+	body.code-theme-black{background:#333;color:#bbb}
+	body.code-theme-black blockquote{
+		border-color:#444;border-color:rgba(200,200,200,.1);
+		background:#444;background:rgba(200,200,200,.1);
+	}
+	body.code-theme-black .h1,body.code-theme-black h1{border-bottom: 1px solid rgba(200,200,200,.2);}
+
+	body.code-theme-black code,body.code-theme-black pre,body.code-theme-black pre code{color:#777;border-color:#444;border-color:rgba(0,0,0,.1);background:#444;background:rgba(0,0,0,.1)}
+	body.code-theme-black code{color:#C5AC18;background:#555;background:rgba(255,255,255,0.15);}
+	body.code-theme-black a{color:orange}
+
+	body.code-theme-black .h1,body.code-theme-black h1,
+	body.code-theme-black .h2,body.code-theme-black h2,
+	body.code-theme-black .h3,body.code-theme-black h3,
+	body.code-theme-black .h4,body.code-theme-black h4,
+	body.code-theme-black .h5,body.code-theme-black h5,
+	body.code-theme-black .h6,body.code-theme-black h6{
+		color: #fff;
+	}
+	body.code-theme-black hr{border-bottom:solid 1px #444;border-color:rgba(200,200,200,.1);background-image:none;}
+	body.code-theme-black table thead{background: #3e3e3e;}
+	body.code-theme-black table td,body.code-theme-black table th{border-color:#444;border-color:rgba(200,200,200,.1)}
+	body.code-theme-black .markdown-latex {color: #fff;}
+	body.code-theme-black div .hljs{display:block;overflow-x:auto;padding:.5em;background:#23241f}
+	body.code-theme-black .hljs,body.code-theme-black .hljs-subst,body.code-theme-black .hljs-tag{color:#f8f8f2}
+	body.code-theme-black .hljs-emphasis,body.code-theme-black .hljs-strong{color:#a8a8a2}
+	body.code-theme-black .hljs-bullet,body.code-theme-black .hljs-link,body.code-theme-black .hljs-literal,body.code-theme-black .hljs-number,body.code-theme-black .hljs-quote,body.code-theme-black .hljs-regexp{color:#ae81ff}
+	body.code-theme-black .hljs-code,body.code-theme-black .hljs-section,body.code-theme-black .hljs-selector-class,body.code-theme-black .hljs-title{color:#a6e22e}
+	body.code-theme-black .hljs-strong{font-weight:700}
+	body.code-theme-black .hljs-emphasis{font-style:italic}
+	body.code-theme-black .hljs-attr,body.code-theme-black .hljs-keyword,body.code-theme-black .hljs-name,body.code-theme-black .hljs-selector-tag{color:#f92672}
+	body.code-theme-black .hljs-attribute,body.code-theme-black .hljs-symbol{color:#66d9ef}
+	body.code-theme-black .hljs-class .hljs-title,body.code-theme-black .hljs-params{color:#f8f8f2}
+	body.code-theme-black .hljs-addition,body.code-theme-black .hljs-built_in,body.code-theme-black .hljs-builtin-name,body.code-theme-black .hljs-selector-attr,body.code-theme-black .hljs-selector-id,body.code-theme-black .hljs-selector-pseudo,body.code-theme-black .hljs-string,body.code-theme-black .hljs-template-variable,body.code-theme-black .hljs-type,body.code-theme-black .hljs-variable{color:#e6db74}
+	body.code-theme-black .hljs-comment,body.code-theme-black .hljs-deletion,body.code-theme-black .hljs-meta{color:#75715e}
+
+	.print-btn{
+		position:absolute;padding:4px 20px;color:#444;font-size:1em;
+		background:#eee;background:rgba(200,200,200,0.2);margin-top: -45px;right:15px;
+	}
+	.print-btn:hover{text-decoration: none;background: #14a2ff;color: #fff;}
+	@media print {
+		.print-btn{display: none;}
+	}
+</style>
+<body >
+<a href="javascript:window.print();" class="print-btn">Print</a>
+
+<h1>MKOnlineMusicPlayer v2.32</h1>
+<p>MKOnlineMusicPlayer 是一款开源的基于 <code>Meting</code> 的在线音乐播放器。具有音乐搜索、播放、下载、歌词同步显示、个人网易云音乐播放列表同步等功能。</p>
+<p>前端界面参照 QQ 音乐网页版进行布局，同时采用了流行的响应式设计，无论是在PC端还是在手机端，均能给您带来原生 app 般的使用体验。</p>
+<h3>界面欣赏</h3>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/16880885/30487091-f7b45980-9a64-11e7-9588-8b6b87ac6763.jpg" alt="主界面(电脑端)"></p>
+<p><img src="https://user-images.githubusercontent.com/16880885/30487141-1f8ad416-9a65-11e7-960c-a102c47a3d0e.jpg" alt="播放列表界面(电脑端)"></p>
+<p><img src="https://user-images.githubusercontent.com/16880885/30487344-c93a0306-9a65-11e7-92f3-552072b1dbce.jpg" alt="歌曲搜索与播放"></p>
+<h3>相关链接</h3>
+<hr>
+<p><strong>在线演示</strong> <a href="http://lab.mkblog.cn/music/" target="_blank">http://lab.mkblog.cn/music/</a></p>
+<p><strong>详细介绍</strong> <a href="http://mkblog.cn/1060/" target="_blank">http://mkblog.cn/1060/</a></p>
+<p><strong>GitHub</strong> <a href="https://github.com/mengkunsoft/MKOnlineMusicPlayer" target="_blank">https://github.com/mengkunsoft/MKOnlineMusicPlayer</a></p>
+<h3>注意事项</h3>
+<hr>
+<h4>运行环境</h4>
+<p>php 5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt</p>
+<h4>兼容性</h4>
+<p>本播放器设计支持 IE9及以上的现代浏览器。并且已在 Chrome、firefox、IE11 等浏览器测试使用正常。</p>
+<h4>版权</h4>
+<p>本播放器由 <a href="http://mkblog.cn" target="_blank">mengkun(http://mkblog.cn)</a> 开发，您可以随意修改、使用、转载。使用或转载时<code>请务必保留出处</code>，抱拳了各位老铁们！</p>
+<h4>歌曲</h4>
+<p>播放器中的歌曲来自各大音乐平台，歌曲版权归各大平台享有。请支持正版音乐。</p>
+<h4>其它</h4>
+<p>作者很忙，非诚勿扰。欢迎提交 BUG 及好的建议，不欢迎一上来就问一些基础的东西及唠东唠西。</p>
+<h3>常见问题</h3>
+<hr>
+<p><strong>歌单读取失败 - 404</strong></p>
+<p>本程序需要上传至网站空间(服务器)使用，不支持在本地打开</p>
+<p><strong>歌单读取失败 - 200</strong></p>
+<p>请确保你的服务器支持 PHP ，并且 PHP 版本 &gt;= 5.4</p>
+<p><strong>歌单页封面显示不出来</strong></p>
+<p>请打开 <code>api.php</code>，将第十行的 <code>define('HTTPS', true);</code> 修改为 <code>define('HTTPS', false);</code></p>
+<h3>待解决的问题</h3>
+<hr>
+<ul>
+<li>高音质音乐下载功能</li>
+<li>IOS 歌曲播放问题</li>
+<li>歌曲播放模式切换(单曲循环、随机播放、列表循环)功能</li>
+</ul>
+<h3>打赏</h3>
+<hr>
+<ul>
+<li>
+<p>解决上面这些问题，需要花费很多时间与精力。支持项目继续完善下去，你也可以贡献一份力量！</p>
+</li>
+<li>
+<p>有了打赏，也就会有更新的动力 : )</p>
+<p><img src="https://ws3.sinaimg.cn/large/006srDtYly1ffqy973ijwj30hk05atam.jpg" alt=""></p>
+</li>
+</ul>
+<h3>更新日志</h3>
+<hr>
+<h4>v2.32 <code>2017/9/15</code></h4>
+<ul>
+<li>修复播放历史记录歌曲时播放失败的 BUG</li>
+<li>新增播放歌曲时浏览器标题栏显示相关信息</li>
+<li>一些细节的完善</li>
+</ul>
+<h4>v2.31 <code>2017/9/13</code></h4>
+<ul>
+<li>优化下载功能，支持直接弹出下载</li>
+<li>下载或分享无版权音乐时给出提示</li>
+<li>再次降低移动端背景特效内存占用</li>
+<li>修复某些手机浏览器列表页右侧菜单按钮下移 BUG</li>
+<li>升级 Meting 至最新版本</li>
+</ul>
+<h4>v2.3 <code>2017/9/9</code></h4>
+<ul>
+<li>全面支持网易云、QQ、虾米、酷狗、百度音乐源切换</li>
+<li>移动端歌曲列表支持直接分享、下载歌曲</li>
+<li>降低内存占用，解决移动端背景特效卡顿问题</li>
+<li>新增对 https 的支持(酷狗、百度音乐源除外)</li>
+<li>新增运行环境自检功能</li>
+<li>优化中等屏幕下显示效果</li>
+<li>修复长歌词定位错乱的 BUG</li>
+<li>修复无法获取自定义专辑封面的 BUG</li>
+<li>修复移动端无法自动播放下一曲的 BUG</li>
+<li>修复切换播放列表后滚动条未归位的 BUG</li>
+<li>修复某些情况下歌词与歌曲不对应的 BUG</li>
+<li>修复中小屏幕下顶部 tab 激活错乱的 BUG</li>
+<li>修复搜索分页的 BUG</li>
+<li>去除超时检测</li>
+</ul>
+<h4>v2.21 <code>2017/5/19</code></h4>
+<ul>
+<li>临时修复 API 失效问题</li>
+<li>新增歌曲超时检测，播放超时则自动播放下一首</li>
+<li>新增设置数据传输方式(GET/POST)</li>
+<li>(这是一个临时版本，虽然解决了一部分API失效的问题，但是还是存在一些问题。剩下的问题将在之后的 v2.3 正式版中解决)</li>
+</ul>
+<h4>v2.2 <code>2017/3/26</code></h4>
+<ul>
+<li>用户歌单获取时新增加载中动画及遮罩，防止重复加载</li>
+<li>修复中等屏幕下鼠标滑过tab边框消失的 BUG</li>
+<li>修复某些情况下第一句歌词无法渲染的 BUG</li>
+<li>修复在IE9下音乐无法播放的 BUG</li>
+<li>更换背景展现方式，整体界面更美观</li>
+<li>正在播放和播放历史列表支持一键清空</li>
+<li>新增图片加载失败时替换处理</li>
+<li>新增小屏幕下为当前显示的tab添加下划线</li>
+<li>新增favicon小图标</li>
+<li>新增歌曲播放时进度条小点闪烁效果</li>
+<li>优化后台数据获取失败时弹出提示</li>
+<li>其它的一些细节优化</li>
+</ul>
+<h4>v2.1 <code>2017/3/20</code></h4>
+<ul>
+<li>紧急修复部分浏览器下切换歌曲造成无限播放失败循环的 BUG</li>
+<li>新增点击未加载完的播放列表弹出提示</li>
+<li>新增搜索时弹出加载中动画</li>
+<li>切换歌曲后进度条自动复位</li>
+<li>优化歌曲外链显示方式，方便复制</li>
+<li>优化封面图像加载大小</li>
+<li>新增无歌词、歌词加载中提示</li>
+<li>优化歌词展现方式</li>
+</ul>
+<h4>v2.0 Beta <code>2017/3/18</code></h4>
+<ul>
+<li>所有代码均推翻重写，前端界面全新改版</li>
+<li>完善对手机端的适配，新支持 IE9~IE11 浏览器</li>
+<li>修复 IE11 下点击下载歌曲名字乱码的 BUG</li>
+<li>新增“正在播放”、“播放历史”列表功能</li>
+<li>新增后台自定义播放列表功能，支持多种列表定义模式</li>
+<li>新增本地记录用户设置及播放列表功能</li>
+<li>进度条支持响应点击事件</li>
+</ul>
+<h4>v1.3 <code>未发布</code></h4>
+<ul>
+<li>新增同步用户歌单功能</li>
+<li>修复一些已知 BUG<br>
+(因逻辑过于混乱，代码过于庞杂，此版本废弃)</li>
+</ul>
+<h4>v1.2 <code>未发布</code></h4>
+<ul>
+<li>这个版本的存档神秘失踪，我也不记得有哪些改变。。</li>
+</ul>
+<h4>v1.1 <code>2016/10/27</code></h4>
+<ul>
+<li>修复宽屏下背景覆盖缺失的 BUG</li>
+<li>修复打开页面后直接点击播放无效的 BUG</li>
+<li>修复EDGE浏览器点击下载时文件名为乱码的 BUG</li>
+<li>优化播放已下架的音乐，会给出无法播放的提示</li>
+<li>修复歌词获取失败时无法清除原有歌词的 BUG</li>
+<li>暂停播放时停止歌词滚动，方便复制歌词</li>
+<li>优化搜索内容为空时弹出提示</li>
+</ul>
+<h4>v1.0 <code>2016/10/25</code></h4>
+<ul>
+<li>完成搜索并播放音乐功能</li>
+<li>完成一键提取音乐外链功能</li>
+<li>完成音乐下载功能</li>
+<li>完成显示歌曲封面、歌词功能</li>
+</ul>
+<h3>开发文档[待完善]</h3>
+<hr>
+<h4>播放列表DIY教程</h4>
+<p>本播放器支持后台自定义播放列表。打开 <code>js/musicList.js</code>，按照里面的说明对应修改即可。</p>
+<h4>播放器DIY教程</h4>
+<p>除了自定义播放列表，本播放器还支持一些 DIY 设定，比如修改 api.php 文件的默认路径、修改搜索框的默认搜索内容等。具体请打开 <code>js/player.js</code> 查看</p>
+<h4>rem 变量表</h4>
+<p>程序中的rem数组用于存储全局变量，具体的成员(部分)及作用见下表：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rem.audio</td>
+<td>audio dom</td>
+</tr>
+<tr>
+<td>rem.playlist</td>
+<td>当前正在播放的播放列表编号</td>
+</tr>
+<tr>
+<td>rem.playid</td>
+<td>正在播放的这首歌在播放列表中的编号</td>
+</tr>
+<tr>
+<td>rem.dislist</td>
+<td>当前显示的列表的列表编号</td>
+</tr>
+<tr>
+<td>rem.loadPage</td>
+<td>搜索功能已加载的页码</td>
+</tr>
+<tr>
+<td>rem.wd</td>
+<td>当前的搜索词</td>
+</tr>
+<tr>
+<td>rem.source</td>
+<td>当前选定的音乐源</td>
+</tr>
+<tr>
+<td>rem.uid</td>
+<td>当前已同步的用户的网易云 ID</td>
+</tr>
+<tr>
+<td>rem.uname</td>
+<td>已登录用户的用户名</td>
+</tr>
+<tr>
+<td>rem.sheetList</td>
+<td>歌单容器操作对象</td>
+</tr>
+<tr>
+<td>rem.mainList</td>
+<td>歌曲列表容器操作对象</td>
+</tr>
+<tr>
+<td>rem.isMobile</td>
+<td>是否是手机浏览</td>
+</tr>
+</tbody>
+</table>
+<h3>致谢</h3>
+<hr>
+<h4>特别感谢 <code>@metowolf</code>、<code>网易云音乐</code>、<code>QQ音乐</code>、<code>虾米</code>、<code>酷狗</code>、<code>百度音乐</code></h4>
+<h4>采用的开源模块</h4>
+<ul>
+<li><strong>Jquery</strong>：js主流开发框架 <a href="http://jquery.com/" target="_blank">http://jquery.com/</a></li>
+<li><strong>Meting</strong>：一个高效的多平台音乐 API 框架 <a href="https://github.com/metowolf/Meting" target="_blank">https://github.com/metowolf/Meting</a></li>
+<li><strong>layer</strong>：一款强大的web弹层组件 <a href="http://layer.layui.com/" target="_blank">http://layer.layui.com/</a></li>
+<li><strong>mCustomScrollbar</strong>：jQuery自定义滚动条样式插件 <a href="http://manos.malihu.gr/jquery-custom-content-scroller/" target="_blank">http://manos.malihu.gr/jquery-custom-content-scroller/</a></li>
+<li><strong>background-blur</strong>：跨浏览器磨砂效果背景图片模糊特效插件 <a href="https://msurguy.github.io/background-blur/" target="_blank">https://msurguy.github.io/background-blur/</a></li>
+<li><strong>Let's Kill IE6</strong>：消灭IE <a href="http://overtrue.me" target="_blank">http://overtrue.me</a></li>
+</ul>
+<h5>在开发过程中，还参照了很多开源 html 播放器的相关代码，在此一并向他们表示感谢！</h5>
+<h3>耻辱柱</h3>
+<hr>
+<p>恭喜下列个人或单位永久入驻耻辱柱！</p>
+<h4>绿岛资源站 [<a href="http://www.ldzy.cc/" target="_blank">http://www.ldzy.cc/</a>]</h4>
+<p>原因：未经允许，发布到淘宝售卖(<a href="https://item.taobao.com/item.htm?id=560064138441" target="_blank">https://item.taobao.com/item.htm?id=560064138441</a> ) 截图：<a href="https://t.cn/RlNRmi5" target="_blank">https://t.cn/RlNRmi5</a></p>
+<h4>68喜论坛 [<a href="http://www.68xi.com/" target="_blank">http://www.68xi.com/</a>]</h4>
+<p>原因：未经允许，删改版权信息(<a href="http://music.68xi.com/" target="_blank">http://music.68xi.com/</a> )，并发布到淘宝售卖(<a href="https://item.taobao.com/item.htm?id=547226809330" target="_blank">https://item.taobao.com/item.htm?id=547226809330</a> )</p>
+<p><code>奉劝某些“人”保留住做人的最基本底线，遵守开源协议，并引以为戒</code></p>
+
+</body>
+<html>
+
