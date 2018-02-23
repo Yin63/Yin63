@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body {
+            background: #fafafa;
+            font: lighter 16px "微软雅黑";
+            font-size: 62.5%;
+        }
+
+        @keyframes mymove {
+            0% {
+                opacity: 0;
+                width: 19rem;
+                height: 27rem;
+            }
+
+            99% {
+                opacity: 1;
+                width: 22rem;
+                height: 30rem;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes mymove {
+            0% {
+                opacity: 0;
+                width: 19rem;
+                height: 27rem;
+            }
+
+            99% {
+                opacity: 1;
+                width: 22rem;
+                height: 30rem;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes mymove {
+            0% {
+                opacity: 0;
+                width: 19rem;
+                height: 27rem;
+            }
+
+            99% {
+                opacity: 1;
+                width: 22rem;
+                height: 30rem;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes mymove {
+            0% {
+                opacity: 0;
+                width: 19rem;
+                height: 27rem;
+            }
+
+            99% {
+                opacity: 1;
+                width: 22rem;
+                height: 30rem;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .option {
+            width: 22rem;
+            height: 30rem;
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            margin: 6rem  auto;
+            box-shadow: 0 0 4px rgba(30, 30, 30, .8);
+            background-color: #D13D4B;
+            animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            animation-delay: .4s;
+            animation-fill-mode: forwards;
+        }
+
+        .option header {
+            position: relative;
+            width: 100%;
+            height: 22rem;
+            left: 0;
+            top: -13rem;
+            border-radius: 45%;
+            background-color: #EB4455;
+            box-shadow: 0 -2px 10px rgba(30, 30, 30, .8);
+
+        }
+
+        .option header img {
+            opacity: .9;
+            position: absolute;
+            width: 4rem;
+            height: 4rem;
+            bottom: -2rem;
+            left: 50%;
+            margin-left: -2rem;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 9px rgba(30, 30, 30, .8);
+        }
+
+        .option header img:hover {
+            opacity: 1;
+        }
+
+        .option main {
+            position: relative;
+            text-align: center;
+            top: -10rem;
+            width: 100%;
+            color: #F2B668;
+        }
+
+        .option main h2 {
+            font-size: 1.4rem;
+            font-weight: inherit;
+        }
+
+        .option main a {
+            text-decoration: none;
+            color: #F2B668;
+
+        }
+
+        .option main button.btn {
+            position: absolute;
+            opacity: .9;
+            width: 100%;
+            left: 50%;
+            margin-left: -11rem;
+            font-size: 1rem;
+            top: 12rem;
+            border: none;
+            color: white;
+            background-color: transparent;
+        }
+
+        .option main button:focus {
+            outline: 0;
+        }
+
+        .option main .problrm {
+            width: 70%;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+        }
+
+        .option main .problrm section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .option main .problrm section select {
+            width: 100%;
+            height: 1.6rem;
+            margin: 3px;
+            border: none;
+            margin-left: 0;
+            border-radius: 3px;
+        }
+
+        .option main .problrm section span {
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+        .option main .problrm section input {
+            font-size: 1rem;
+            width: 96%;
+            border: none;
+            height: 1.6rem;
+            margin: 5px;
+            margin-left: 0;
+            border-radius: 3px;
+            padding: 0 2%;
+        }
+
+        .option main .problrm section.dispy {
+            margin-top: 30px;
+            margin-left: 2px;
+            opacity: .8;
+            background-color: rgba(30, 30, 30, .3);
+        }
+
+        .option main .problrm section.dispy span {
+            font-size: .9rem;
+            margin: 1rem 0;
+        }
+
+        .option main .problrm section.dispy button {
+            background-color: white;
+            border: none;
+            border-radius: 3px;
+            width: 7.5rem;
+            padding: 4px;
+            font-size: .9rem;
+            box-shadow: 0 0 4px rgba(30, 30, 30, .3);
+        }
+
+        .option main .problrm section.dispy button.btn2 {
+            float: left;
+        }
+
+        .option main .problrm section.dispy button.btn3 {
+            float: right;
+        }
+
+        .option main .problrm section input:focus {
+            outline: 0;
+        }
+
+        .option main .problrm .open {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: inline-block;
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            border: 0;
+            opacity: .8;
+            border-radius: 50%;
+            background-color: #F2B668;
+        }
+
+        .option main .problrm .open:hover {
+            opacity: 1;
+        }
+
+        /*button点击时出现蓝色边框 ，解决办法：在button上添加 :focus{outline:0;} 才得以解决。*/
+
+        @media (max-width:768px) {
+            html,
+            body {
+                font-size: 12px;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                overflow-y: hidden;
+            }
+            .option {
+                /* margin: 6rem 3rem; */
+                margin: 30% auto 0 auto;
+
+            }
+            .option main .problrm section input{
+                font-size: .6rem;
+            }
+            .option main .problrm section select{
+                font-size: .6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="option">
+        <header>
+            <img src="image/tx.jpg" alt="头像">
+        </header>
+
+        <main>
+            <h2> 祝你新春快乐</h2>
+            <a href="javascript:;">前端大白 敬上！</a>
+            <button class="btn">点击拆开</button>
+        </main>
+    </div>
+
+</body>
+<script src="fonts/jquery-3.2.1.js"></script>
+<script src="fonts/script.js"></script>
+<script>
+
+    var num = 0;
+    var sum = null;
+
+    /**
+    *   程序：春节限定红包！
+    *   作者 ：大白(●—●)/ yni63
+    *   尽量做得到，方便大家，这里提取出来一些关键变量。方便大家调试修改！
+    *   github:https://github.com/Yin63/Yin63
+    *   博客：www.yni63.win
+    */
+    var authorurl = 'http://qm.qq.com/cgi-bin/qm/qr?k=eIpg2LqTogTvYesXvqzEg3E9V8gnJmrb';    // 作者链接
+    var textarea = [
+        {'text1':'我喜欢什么？','text_1':'汉子','text_2':'妹子'},
+        {'text2':'我最常用的头像是什么颜色？','text2_1':'黄色'},
+        {'text3':'我叫什么名字？','text3_1':'xxxx'},
+        {'text4':' 我 帅不帅？','text4_1':'帅','text4_2':'不帅'}
+    ];
+//--------------------------------------------------------------------------------------------------------------------
+    $('.option header img').on('click',function(){
+        window.open(authorurl);
+    })
+    $('.option main a').attr('href',authorurl);
+
+    var text = '<div class="problrm"><section><span>'+textarea[0].text1+'</span><select><option value="false">'+textarea[0].text_1+'</option><option value="true">'+textarea[0].text_2+'</option></select></section><section><span>'+textarea[1].text2+'</span><input type="text" class="text1"></section><section><span>'+textarea[2].text3+'</span><input type="text" class="text2"></section><section class="dispy"><span> >> 隐藏题目 << </span></section><button class="open">开</button></div>';
+    $('.btn').on('click', function () {
+        var winweight = $('.option').height();
+        var wintop = parseInt($('.option').css('marginTop'));
+        $('.option').css({'height': (winweight + 120) + 'px','marginTop':(wintop-100 )+'px'});
+        $('main').html(text);
+        $('.dispy>span').on('click', function () {
+            $(this).parent(".dispy").html('<span>'+textarea[3].text4+'</span><button class="btn2">'+textarea[3].text4_1+'</button><button class="btn3">'+textarea[3].text4_2+'</button>').css({ 'background-color': 'transparent', 'opacity': '1' })
+            $('.option').css('height', (winweight + 160) + 'px');
+            $('.dispy>span').css('font-size', '1.2rem');
+            
+
+            $('.btn2').attr({'index' :'true','hand':'true'});
+            $('.btn3').attr({'index' :'false','hand':'false'});
+
+            $('.btn2').on('click', function () {
+                sum = 1;
+                $('.btn3').css({"background-color":"white","color":"black"});
+                $(this).css({'background-color': '#00A2E8',"color":"white"})
+
+                if( $(this).attr('index') !== 'true' ){
+                    num+=1;
+                    $(this).attr({'index' :'true','hand':'true'}).html(textarea[3].text4_1);
+                    $('.btn3').attr({'index' :'false','hand':'false'}).html(textarea[3].text4_2);
+                    if(num>3){
+                        alert('好了，不逗你了,重新选择吧，这次我们严肃点！');
+                        $(this).attr('index','true');
+                        $('.btn3').attr('index','true');
+                        num = 0;
+                    }
+                }
+            })
+
+
+            $('.btn3').on('click', function () {
+                sum = 2;
+                $('.btn2').css({"background-color":"white","color": "black"})
+                $(this).css({"background-color": "#00A2E8","color":"white"})
+
+                if( $(this).attr('index') !== 'true' ){
+                    num+=1;
+                    $(this).attr({'index' :'true','hand':'true'}).html(textarea[3].text4_1);;
+                    $('.btn2').attr({'index' :'false','hand':'false'}).html(textarea[3].text4_2);
+                    if(num>3){
+                        alert('好了，不逗你了,重新选择吧，这次我们严肃点！');
+                        $(this).attr('index','true');
+                        $('.btn2').attr('index','true');
+                        num = 0;
+                    }
+                }
+            })
+        })
+
+
+
+
+        $('.open').on('click', function () {
+
+            var num = 0;
+            var object = $('.problrm select').val();
+            if(object == "true"){
+                num++;
+            }
+            var text1 = $('.problrm  .text1').val();
+            if(text1 == textarea[1].text2_1){
+                num++;
+            }
+            
+
+            var text2 = $('.problrm  .text2').val();
+            if(text2 == textarea[2].text3_1){
+                num++;
+            }
+            if(sum == 1){
+                if($('.btn2').attr('hand') === 'true'){
+                    num++;
+                }
+            }else if(sum == 2){
+                if($('.btn3').attr('hand') === 'true'){
+                    num++;
+                }
+            }else{
+                console.log('放弃题目！');
+            }
+
+            if( num <= 2 && num > 0 ){      //  可以根据不同的题量调整阈值！
+                $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
+                setTimeout(function(){
+                    window.open('你的红包链接');//  填写你的红包链接
+                },1000)
+            }else if( num == 3 ){
+                $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
+                setTimeout(function(){
+                    window.open('你的红包链接');
+                },1000)
+            }else if( num > 3 ){
+                $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
+                setTimeout(function(){
+                    window.open(
+                        '你的红包链接');
+                },1000)
+            }else{
+                $('.option main').html('<h1>什么？ 一个 都不会？</h1><h3>傻逼，我不认识你！</h3>');
+            }
+        })
+
+    })
+</script>
+
+</html>
