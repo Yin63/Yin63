@@ -13,7 +13,7 @@
             font: lighter 16px "微软雅黑";
             font-size: 62.5%;
         }
-        
+
         @font-face {
             font-family: 'iconfont';
             /* project id 507366 */
@@ -101,9 +101,10 @@
             margin: 6rem auto;
             box-shadow: 0 0 4px rgba(30, 30, 30, .8);
             background-color: #D13D4B;
-            animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            animation-delay: .4s;
-            animation-fill-mode: forwards;
+            animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55) .9s forwards;
+            -webkit-animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55) .9s forwards;
+            -moz-animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55) .9s forwards;
+            -o-animation: mymove .6s cubic-bezier(0.68, -0.55, 0.27, 1.55) .9s forwards;
         }
 
         .option header {
@@ -273,7 +274,6 @@
                 overflow-y: hidden;
             }
             .option {
-                /* margin: 6rem 3rem; */
                 margin: 30% auto 0 auto;
 
             }
@@ -283,59 +283,63 @@
             .option main .problrm section select {
                 font-size: .6rem;
             }
-            @keyframes identifier {
-                0% {
-                    transform: rotate(0deg)
-                }
-                100% {
-                    transform: rotate(360deg)
-                }
-            }
+        }
 
-            @-o-keyframes identifier {
-                0% {
-                    transform: rotate(0deg)
-                }
-                100% {
-                    transform: rotate(360deg)
-                }
+        @keyframes identifier {
+            0% {
+                transform: rotate(0deg)
             }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
 
-            @-moz-keyframes identifier {
-                0% {
-                    transform: rotate(0deg)
-                }
-                100% {
-                    transform: rotate(360deg)
-                }
+        @-o-keyframes identifier {
+            0% {
+                transform: rotate(0deg)
             }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
 
-            @-webkit-keyframes identifier {
-                0% {
-                    transform: rotate(0deg)
-                }
-                100% {
-                    transform: rotate(360deg)
-                }
+        @-moz-keyframes identifier {
+            0% {
+                transform: rotate(0deg)
             }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
 
-            body .music {
-                position: fixed;
-                top: 2rem;
-                right: 2rem;
-                width: 3rem;
-                height: 3rem;
-                animation: identifier 5s linear infinite;
+        @-webkit-keyframes identifier {
+            0% {
+                transform: rotate(0deg)
             }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
 
-            .iconfont {
-                font-family: "iconfont" !important;
-                font-size: 3rem;
-                font-style: normal;
-                -webkit-font-smoothing: antialiased;
-                -webkit-text-stroke-width: 0.2px;
-                -moz-osx-font-smoothing: grayscale;
-            }
+        body .music {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            animation: identifier 5s linear infinite;
+            -webkit-animation: identifier 5s linear infinite;
+            -moz-animation: identifier 5s linear infinite;
+            -o-animation: identifier 5s linear infinite;
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 3rem;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
 </head>
@@ -344,8 +348,7 @@
     <span class="music">
         <i class="iconfont">&#xe620;</i>
     </span>
-    <audio src="http://m10.music.126.net/20180223211634/3022b141354104180b8e2112d0731f34/ymusic/b0ce/6934/88c5/079b792bb46536509302292c28fddff2.mp3"
-        autoplay="autoplay" loop="loop"></audio>
+    <audio src="image/mifen.mp3" autoplay="autoplay" loop="loop"></audio>
 
     <div class="option">
         <header>
@@ -375,11 +378,27 @@
                 $(this).css('animation-play-state', 'paused');
                 music = false;
             } else {
-                $('audio').get(0).play();
+                /*$('audio').get(0).play();*/   audioAutoPlay($('audio').get(0));
                 $(this).css('animation-play-state', 'running');
                 music = true;
             }
         })
+
+        function audioAutoPlay(id) {
+            var audio = $('audio').get(0);
+            play = function () {
+                audio.play();
+                document.removeEventListener("touchstart", play, false);
+            };
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {//微信  
+                play();
+            }, false);
+            document.addEventListener('YixinJSBridgeReady', function () {//易信  
+                play();
+            }, false);
+            document.addEventListener("touchstart", play, false);
+        }
 
     })()
     //******************************
@@ -397,8 +416,8 @@
     var authorurl = 'http://qm.qq.com/cgi-bin/qm/qr?k=eIpg2LqTogTvYesXvqzEg3E9V8gnJmrb';    // 作者链接
     var textarea = [
         { 'text1': '我喜欢什么？', 'text_1': '汉子', 'text_2': '妹子' },
-        { 'text2': '我最常用的头像是什么颜色？', 'text2_1': '黄色' },
-        { 'text3': '我叫什么名字？', 'text3_1': 'xxxx' },
+        { 'text2': '我最常用的头像是什么颜色？', 'text2_1': '红色' },
+        { 'text3': '我那个游戏玩的最 6 ？', 'text3_1': 'QQ飞车' },
         { 'text4': ' 我 帅不帅？', 'text4_1': '帅', 'text4_2': '不帅' }
     ];
     //--------------------------------------------------------------------------------------------------------------------
@@ -492,21 +511,21 @@
                 console.log('放弃题目！');
             }
 
-            if (num <= 2 && num > 0) {      //  可以根据不同的题量调整阈值！
+            if (num <= 2 && num > 0) {
                 $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
                 setTimeout(function () {
-                    window.open('你的红包链接');//  填写你的红包链接
+                    window.open('红包链接');
                 }, 1000)
             } else if (num == 3) {
                 $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
                 setTimeout(function () {
-                    window.open('你的红包链接');
+                    window.open('红包链接');
                 }, 1000)
             } else if (num > 3) {
                 $('.option main').html('<h2>1秒后跳转领取红包！</h2>');
                 setTimeout(function () {
                     window.open(
-                        '你的红包链接');
+                        '红包链接');
                 }, 1000)
             } else {
                 $('.option main').html('<h1>什么？ 一个 都不会？</h1><h3>傻逼，我不认识你！</h3>');
