@@ -428,13 +428,12 @@
 
     var text = '<div class="problrm"><section><span>' + textarea[0].text1 + '</span><select><option value="false">' + textarea[0].text_1 + '</option><option value="true">' + textarea[0].text_2 + '</option></select></section><section><span>' + textarea[1].text2 + '</span><input type="text" class="text1"></section><section><span>' + textarea[2].text3 + '</span><input type="text" class="text2"></section><section class="dispy"><span> >> 隐藏题目 << </span></section><button class="open">开</button></div>';
     $('.btn').on('click', function () {
-        var winweight = $('.option').height();
         var wintop = parseInt($('.option').css('marginTop'));
-        $('.option').css({ 'height': (winweight + 120) + 'px', 'marginTop': (wintop - 100) + 'px' });
+        $('.option').css({  'marginTop': (wintop - 100) + 'px','paddingBottom': 120}); 
         $('main').html(text);
         $('.dispy>span').on('click', function () {
             $(this).parent(".dispy").html('<span>' + textarea[3].text4 + '</span><button class="btn2">' + textarea[3].text4_1 + '</button><button class="btn3">' + textarea[3].text4_2 + '</button>').css({ 'background-color': 'transparent', 'opacity': '1' })
-            $('.option').css('height', (winweight + 160) + 'px');
+            $('.option').css('paddingBottom', 140);
             $('.dispy>span').css('font-size', '1.2rem');
 
 
